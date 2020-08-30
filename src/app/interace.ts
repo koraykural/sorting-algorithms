@@ -1,4 +1,4 @@
 export interface DataSet {
   number: number;
-  state: string;
+  state: "comparing" | "sorted" | "unsorted";
 }

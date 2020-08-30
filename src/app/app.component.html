@@ -1,6 +1,54 @@
 <app-visualizer [data]="data"></app-visualizer>
 
-<button class="btn btn-lg btn-primary" (click)="QuickSort()" disabled>Quick Sort</button>
-<button class="btn btn-lg btn-primary" (click)="BubbleSort()">Bubble Sort</button>
-<button class="btn btn-lg btn-primary" (click)="InsertionSort()">Insertion Sort</button>
-<button class="btn btn-lg btn-primary" (click)="SelectionSort()">Selection Sort</button>
+<div class="container mt-3 buttons">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01"
+        >Sorting Algorithm</label
+      >
+    </div>
+    <select
+      class="custom-select"
+      id="inputGroupSelect01"
+      [disabled]="started"
+      (change)="algorithmSelection($event.target.value)"
+    >
+      <option selected>Choose one</option>
+      <option value="QuickSort">Quick Sort</option>
+      <option value="BubbleSort">Bubble Sort</option>
+      <option value="InsertionSort">Insertion Sort</option>
+      <option value="SelectionSort">Selection Sort</option>
+      <option value="MergeSort">Merge Sort</option>
+    </select>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <label for="formControlRange">Speed</label>
+  <input
+    type="range"
+    class="form-control-range"
+    min="1"
+    max="100"
+    value="50"
+    id="formControlRange"
+    (change)="speedChange($event.target.value)"
+  />
+  <div class="mt-3">
+    <button
+      class="btn btn-lg mr-2"
+      [ngClass]="started ? 'btn-secondary' : 'btn-primary'"
+      [disabled]="started"
+      (click)="start()"
+    >
+      Start
+    </button>
+    <button
+      class="btn btn-lg"
+      [ngClass]="!started ? 'btn-secondary' : 'btn-primary'"
+      (click)="reset()"
+    >
+      Reset
+    </button>
+  </div>
+</div>
