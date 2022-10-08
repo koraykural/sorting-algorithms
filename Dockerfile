@@ -4,10 +4,10 @@ FROM node:14 AS my-app-build
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 RUN npm ci
 
-COPY . .
+COPY . ./
 RUN npm run build
 
 # stage 2
