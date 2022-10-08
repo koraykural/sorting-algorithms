@@ -2,6 +2,6 @@ version: 0.0
 os: linux
 hooks:
   ApplicationStart:
-    - location: scripts/start_container.sh
+    - location: start_container.sh
       timeout: 60
       runas: ec2-user
