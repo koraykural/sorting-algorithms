@@ -12,7 +12,7 @@ jobs:
     with:
       subdomain: sorting-algorithm-visualizer
       build_command: npm run build
-      dist_dir: dist/SortingAlgorithms/SortingAlgorithms
+      dist_dir: dist
       node_version: "16"
     secrets:
       VPS_HOST: ${{ secrets.VPS_HOST }}
