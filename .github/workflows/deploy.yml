@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    uses: koraykural/koraykural-infra/.github/workflows/deploy-static.yml@main
+    with:
+      subdomain: sorting-algorithm-visualizer
+      build_command: npm run build
+      dist_dir: dist/SortingAlgorithms
+    secrets:
+      VPS_HOST: ${{ secrets.VPS_HOST }}
+      VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
